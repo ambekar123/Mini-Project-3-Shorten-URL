@@ -8,11 +8,11 @@ const { promisify } = require("util");
 
 //Connect to redis
 const redisClient = redis.createClient(
-  12845,
-  "redis-12845.c10.us-east-1-3.ec2.cloud.redislabs.com",
+  14775,
+  "redis-14775.c265.us-east-1-2.ec2.cloud.redislabs.com",
   { no_ready_check: true }
 );
-redisClient.auth("Xq0rqlRVXkNbnWcLZHDtABWmqMFxKhjv", function (err) {
+redisClient.auth("rHkakQ8RxpneglemC1SKATc2wTCbztbS", function (err) {
   if (err) throw err;
 });
 
@@ -76,7 +76,7 @@ const shortenUrl = async function (req, res) {
     
     const isAlreadyReg = await urlModel.findOne({longUrl})
     if(isAlreadyReg){
-      res.status(201).send({ data: isAlreadyReg });
+      return res.status(201).send({ data: isAlreadyReg });
     }
     function makeid(length) {
       var result = "";
